@@ -1,68 +1,63 @@
-# MapX – Warehouse Bot Simulator
+# 🧭 MapX – Pathfinding & Simulation Visualizer
 
-MapX is a Python-based simulation tool for visualizing pathfinding algorithms like **A\*** and **Dijkstra** in a grid-based warehouse or factory setting. It allows you to place walls, set start/goal positions, and watch step-by-step how the bot finds its path in real time.
-
-## 📦 Features
-
-- Grid-based environment (customizable size)
-- Wall placement with mouse
-- Set Start and Goal positions
-- Real-time visual comparison between:
-  - A\* Algorithm (with Manhattan heuristic)
-  - Dijkstra's Algorithm (uniform cost)
-- Map save/load (`map.json`)
-- Path and visited node visualization
+MapX is an interactive Python-based simulator for visualizing and comparing popular pathfinding algorithms like **A\*** and **Dijkstra's Algorithm** on a 2D grid. Designed for educational and research purposes, it also emulates real-world warehouse or robotic bot navigation.
 
 ---
 
-## 🎮 Controls
+## 🧠 Key Features
 
-| Action                  | Key/Mouse       |
-|-------------------------|-----------------|
-| Place/Remove Wall       | Left Click      |
-| Set Start Position      | `S`             |
-| Set Goal Position       | `G`             |
-| Wall Drawing Mode       | `W`             |
-| Select A* Algorithm     | `1`             |
-| Select Dijkstra         | `2`             |
-| Run Algorithm           | `SPACE`         |
-| Save Map to `map.json`  | `K`             |
-| Load Map from File      | `L`             |
-| Quit                    | Close window    |
+- 🔁 **Real-time visualization** of pathfinding (step-by-step animation)
+- ✅ Supports **A\*** (with heuristic) and **Dijkstra's** (uniform cost)
+- 🧱 Click-to-place **walls**, **start**, and **goal** nodes
+- 💾 Save and load maps (`map.json`)
+- 🎯 Algorithm switching at runtime
+- 🧩 Modular, readable Python code using **pygame**
 
 ---
 
-## 🧠 Algorithms
+## 🕹️ Controls
 
-### A\*
-- Uses Manhattan distance as a heuristic.
-- Typically finds shorter paths faster.
-- Favors paths closer to the goal.
-
-### Dijkstra
-- No heuristic.
-- Explores all directions equally.
-- Guaranteed shortest path but often slower.
+| Key / Mouse | Action                         |
+|-------------|--------------------------------|
+| Left Click  | Place/Remove Wall              |
+| `S`         | Set Start Position             |
+| `G`         | Set Goal Position              |
+| `W`         | Switch to Wall Drawing Mode    |
+| `1`         | Select A\* Algorithm            |
+| `2`         | Select Dijkstra's Algorithm     |
+| `SPACE`     | Run Selected Pathfinding Algo  |
+| `K`         | Save Map to `map.json`         |
+| `L`         | Load Map from `map.json`       |
+| `X` / `ESC` | Exit / Close Window            |
 
 ---
 
-## 📁 Project Structure
+## 📦 Project Structure
+
 MapX/
-│
-├── main.py # App entry point
-├── config.py # Grid and color settings
-├── grid.py # Grid data logic
-├── pathfinding.py # A*, Dijkstra stepwise logic
-├── visualizer.py # Grid and path rendering (pygame)
-├── map.json # Saved grid layout (walls/start/goal)
-└── assets/ # (Optional: for future textures/sprites)
+├── main.py # Entry point – handles UI and control flow
+├── config.py # Constants for grid size and colors
+├── grid.py # Grid data model: walls, start, goal
+├── pathfinding.py # Algorithms: A*, Dijkstra (stepwise generators)
+├── visualizer.py # Grid + path + visited rendering (pygame)
+├── map.json # Sample saved map (walls/start/goal)
 
-## 🚀 Requirements
 
-- Python 3.8+
-- [pygame](https://pypi.org/project/pygame/)
+## 🔍 Algorithms Compared
 
-Install with:
+| Algorithm | Heuristic | Optimal Path | Speed      |
+|-----------|-----------|--------------|------------|
+| A\*       | ✅ Yes     | ✅ Yes        | ⚡ Faster   |
+| Dijkstra  | ❌ No      | ✅ Yes        | 🐢 Slower   |
+
+- **A\*** uses *Manhattan distance* to prioritize nodes closer to the goal.
+- **Dijkstra** explores all equally, good for uniform-cost terrain.
+
+---
+
+## 🚀 Getting Started
+
+### 📦 Install Requirements
 
 ```bash
 pip install pygame
